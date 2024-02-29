@@ -13,6 +13,8 @@ export default {
         'strathmore-yellow-light': '#CC9C4A',
         'nav-blue': '#1e85f1',
         'search-green': '#6d9296',
+        'strathmore-red': '#A81818',
+        'strathmore-grey': '#707070',
       },
     },
   },

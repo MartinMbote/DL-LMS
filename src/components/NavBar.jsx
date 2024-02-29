@@ -24,11 +24,11 @@ const NavBar = () => {
         </div>
 
         <div className='absolute right-[1.5vw] top-[1vw] flex text-white gap-[1.9vw]'>
-          <p className='text-[1.1vw] mt-[0.6vw] cursor-pointer'>
+          <p className='text-[1.1vw] mt-[0.6vw] cursor-pointer hover:text-strathmore-yellow'>
             Login
           </p>
 
-          <div className='w-[7.5vw] h-[2.9vw] border-[0.15vw] rounded-[0.6vw] text-center text-[1.2vw] leading-[2.5vw] cursor-pointer'>
+          <div className='w-[7.5vw] h-[2.9vw] border-[0.15vw] rounded-[0.6vw] text-center text-[1.2vw] leading-[2.5vw] cursor-pointer hover:text-strathmore-yellow hover:border-strathmore-yellow'>
             <p>
               Get Started
             </p>
