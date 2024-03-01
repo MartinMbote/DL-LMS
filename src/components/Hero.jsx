@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className='absolute right-[0vw] bottom-[0vw]'>
+        <div className='absolute right-[0vw] bottom-[0.5vw]'>
           <img src={pinksweater} className='h-[40vw]' />
         </div>
       </div>
