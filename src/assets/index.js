@@ -6,5 +6,14 @@ import star from "./star.png"
 import bigDataImage from "./bigDataImage.png";
 import dataStructureImg from "./dataStructureImg.png";
 import DataAnalytics from "./DataAnalytics.png";
+import designIcon from "./designIcon.png";
+import developmentIcon from "./developmentIcon.png";
+import itIcon from "./itIcon.png";
+import artsIcon from "./artsIcon.png";
+import businessIcon from "./businessIcon.png";
+import marketingIcon from "./marketingIcon.png";
+import personaldevelopmentIcon from "./personaldevelopmentIcon.png";
+import photoIcon from "./photoIcon.png";
+import coprateImage from "./coprateImage.png";
 
-export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics };
+export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage };

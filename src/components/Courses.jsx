@@ -4,12 +4,12 @@ import { pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalyti
 const Courses = () => {
     const stars = [star, star, star, star, star];
     const coursesImages = [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics];
-    const courseText = ["Python for Data Science", "acs", "Data Structure & Analysis", "Data Analytics"];
+    const courseText = ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"];
 
   return (
     <div>
         <div className='border w-full h-[8.5vw] bg-opacity-20 bg-strathmore-grey'>
-            <p className='text-strathmore-red text-[3vw] mt-[2vw] ml-[1.5vw]'>
+            <p className='text-strathmore-red text-[3vw] mt-[2vw] ml-[8vw]'>
                 Explore Courses
             </p>
         </div>
