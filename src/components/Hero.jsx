@@ -15,13 +15,13 @@ const Hero = () => {
           </p>
 
           <div className=' flex gap-[2.8vw] justify-center'>
-            <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white'>
+            <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white'>
               <p>
                 Try my free Month
               </p>
             </div>
 
-            <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey'>
+            <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey text-[1vw]'>
               <p>
                 Try DL for Business
               </p>
@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className='absolute right-[0vw] bottom-[0.5vw]'>
+        <div className='absolute right-[0vw] top-[8.4vw]'>
           <img src={pinksweater} className='h-[40vw]' />
         </div>
       </div>

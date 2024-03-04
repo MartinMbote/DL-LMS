@@ -17,7 +17,7 @@ const HomePage = () => {
               Drive business impact <br /> Get access to courses for your business, higher education, or government team
             </p>
 
-            <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white'>
+            <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white text-[1vw] drop-shadow'>
               <p>
                 Get DL for Business
               </p>
