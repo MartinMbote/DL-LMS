@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavBar, Hero, Courses, Categories, Comments } from '../components'
+import { NavBar, Hero, Courses, Categories, Comments, Footer } from '../components'
 import { coprateImage, ladySpecs } from '../assets';
 
 
@@ -50,6 +50,8 @@ const HomePage = () => {
             <img src={ladySpecs} className='h-[28vw]' />
           </div>
         </div>
+
+        <Footer />
     </div>
   )
 }
