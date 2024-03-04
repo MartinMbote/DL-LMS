@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavBar, Hero, Courses, Categories } from '../components'
-import { coprateImage } from '../assets';
+import { NavBar, Hero, Courses, Categories, Comments } from '../components'
+import { coprateImage, ladySpecs } from '../assets';
 
 
 const HomePage = () => {
@@ -25,6 +25,30 @@ const HomePage = () => {
           </div>
 
           <img src={coprateImage} className='h-[44.5vw] mt-[4vw] pb-[3vw]' />
+        </div>
+
+        <Comments />
+
+        <div>
+          <div className='mb-[7vw] flex justify-center gap-[5vw]'>
+            <div className='w-[29vw]'>
+              <p className='text-strathmore-red text-[2.3vw] mb-[0.7vw] mt-[5vw]'>
+                Become an instructor
+              </p>
+
+              <p className='font-semibold text-strathmore-grey text-[1.4vw] mb-[3vw]'>
+                Instructors from around the world teach millions of learners on Digital Learning. We provide the tools and skills to teach what you love.
+              </p>
+
+              <div className='w-[12vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white drop-shadow text-[1vw]'>
+              <p>
+                Start Teaching Today
+              </p>
+            </div>
+            </div>
+
+            <img src={ladySpecs} className='h-[28vw]' />
+          </div>
         </div>
     </div>
   )

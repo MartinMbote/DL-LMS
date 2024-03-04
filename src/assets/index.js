@@ -15,5 +15,8 @@ import marketingIcon from "./marketingIcon.png";
 import personaldevelopmentIcon from "./personaldevelopmentIcon.png";
 import photoIcon from "./photoIcon.png";
 import coprateImage from "./coprateImage.png";
+import nextArrow from "./nextArrow.png";
+import commentImage from "./commentImage.png";
+import ladySpecs from "./ladySpecs.png";
 
-export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage };
+export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs };
