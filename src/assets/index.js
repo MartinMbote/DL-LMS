@@ -18,5 +18,9 @@ import coprateImage from "./coprateImage.png";
 import nextArrow from "./nextArrow.png";
 import commentImage from "./commentImage.png";
 import ladySpecs from "./ladySpecs.png";
+import bellIcon from "./bellIcon.png";
+import messengerIcon from "./messengerIcon.png";
+import me from "./me.jpg";
+import downArrow from "./down-arrow.png";
 
-export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs };
+export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow };

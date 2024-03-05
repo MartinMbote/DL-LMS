@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchComponent from './SearchComponent'
+import { bellIcon, messengerIcon, me, downArrow } from '../assets'
 
 const NavBar = ({ isLoggedIn }) => {
   return (
@@ -24,8 +25,28 @@ const NavBar = ({ isLoggedIn }) => {
           <SearchComponent isLoggedIn={true} />
         </div>
 
-        <div className='absolute right-[1.5vw] border top-[1vw] flex text-white gap-[1.9vw]'>
-          
+        <div className='absolute right-[1.5vw] top-[1vw] flex text-white gap-[0.95vw]'>
+          <div className='flex gap-[0.8vw] mt-[0.8vw]'>
+            <div>
+              <img src={bellIcon} className='h-[1.5vw] cursor-pointer' />
+
+              <div className='w-[0.5vw] h-[0.5vw] bg-red-600 mt-[-1.4vw] ml-[0.8vw] rounded-[3vw] z-10'></div>
+            </div>
+
+            <img src={messengerIcon} className='h-[1.4vw] cursor-pointer' />
+          </div>
+
+          <div className='flex gap-[0.5vw] cursor-pointer'>
+            <img src={me} className='h-[3vw] rounded-[2vw]' />
+
+            <div className='text-strathmore-grey text-[0.9vw] font-semibold flex gap-[0.3vw] mt-[0.7vw]'>
+              <p>
+                MRTN
+              </p>
+
+              <img src={downArrow} className='h-[0.6vw] mt-[0.43vw]' />
+            </div>
+          </div>
         </div>
       </nav>
       ) : (
