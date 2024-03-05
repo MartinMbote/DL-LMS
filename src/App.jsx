@@ -1,10 +1,17 @@
 import React from 'react'
-import { HomePage } from './pages'
+import { HomePage, CoursePage } from './pages'
+import { NavBar } from './components'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <HomePage />
+      <Router>
+        <Routes>
+          <Route path='/dl-lms/' element={<HomePage />} />
+          <Route path='/dl-lms/LearnCoursePage' element={<CoursePage />} />
+        </Routes>
+      </Router>
     </>
   )
 }

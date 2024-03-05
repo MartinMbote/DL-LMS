@@ -6,7 +6,7 @@ import { coprateImage, ladySpecs } from '../assets';
 const HomePage = () => {
   return (
     <div>
-        <NavBar />
+        <NavBar isLoggedIn={false} />
         <Hero />
         <Courses />
         <Categories />

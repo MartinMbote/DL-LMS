@@ -1,5 +1,6 @@
 import React from 'react'
 import { pinksweater } from '../assets'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -15,11 +16,13 @@ const Hero = () => {
           </p>
 
           <div className=' flex gap-[2.8vw] justify-center'>
-            <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white'>
-              <p>
-                Try my free Month
-              </p>
-            </div>
+            <Link to="/dl-lms/LearnCoursePage">
+              <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white'>
+                <p>
+                  Try my free Month
+                </p>
+              </div>
+            </Link>
 
             <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey text-[1vw]'>
               <p>

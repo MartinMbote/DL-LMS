@@ -15,6 +15,8 @@ export default {
         'search-green': '#6d9296',
         'strathmore-red': '#A81818',
         'strathmore-grey': '#707070',
+        'nav-logged': '#f2f8fe',
+        'mockup-yellow': '#f0ae12',
       },
     },
   },
