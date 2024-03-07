@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import { NavBar } from '../components'
-import { star, downArrow } from '../assets';
+import { star, downArrow, playButton } from '../assets';
 import ReactPlayer from 'react-player';
 
 const CoursePage = () => {
@@ -123,8 +123,20 @@ const CoursePage = () => {
                     <img src={downArrow} className='h-[1vw] mt-[0.32vw]' />
                   </div>
 
-                  <div className='w-full h-[2vw] bg-nav-blue bg-opacity-50'>
+                  <div className='w-full h-[3vw] bg-nav-blue bg-opacity-30 flex gap-[0.8vw]'>
+                    <div className='h-full w-[0.4vw] bg-nav-blue'></div>
 
+                    <img src={playButton} className='h-[1.2vw] mt-[1vw]' />
+
+                    <div className='font-semibold mt-[0.3vw]'>
+                      <p className='text-[0.85vw]'>
+                        History of Python
+                      </p>
+
+                      <p className='text-[0.7vw] text-strathmore-grey'>
+                        10m 30s
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
