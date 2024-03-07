@@ -50,8 +50,6 @@ const HomePage = () => {
             <img src={ladySpecs} className='h-[28vw]' />
           </div>
         </div>
-
-        <Footer />
     </div>
   )
 }

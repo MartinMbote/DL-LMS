@@ -1,6 +1,6 @@
 import React from 'react'
 import { HomePage, CoursePage } from './pages'
-import { NavBar } from './components'
+import { NavBar, Footer } from './components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
           <Route path='/dl-lms/LearnCoursePage' element={<CoursePage />} />
         </Routes>
       </Router>
+
+      <Footer />
     </>
   )
 }
