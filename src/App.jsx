@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomePage, CoursePage } from './pages'
+import { HomePage, CoursePage, UserHomePage } from './pages'
 import { NavBar, Footer } from './components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route path='/dl-lms/' element={<HomePage />} />
           <Route path='/dl-lms/LearnCoursePage' element={<CoursePage />} />
+          <Route path='/dl-lms/UserHomePage' element={<UserHomePage />} />
         </Routes>
       </Router>
 
