@@ -14,7 +14,9 @@ const UserHomePage = () => {
 
         coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
 
-        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"],
+
+        byWho: ["Phalex"]
       }, 
 
       {
@@ -22,7 +24,9 @@ const UserHomePage = () => {
 
         coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
 
-        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"],
+
+        byWho: ["John"]
       },
 
       {
@@ -30,7 +34,9 @@ const UserHomePage = () => {
 
         coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
         
-        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"],
+
+        byWho: ["Mike"]
       },
 
       {
@@ -38,7 +44,9 @@ const UserHomePage = () => {
 
         coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
         
-        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"],
+
+        byWho: ["Micheal"]
       }
     ];
 
@@ -181,7 +189,7 @@ const UserHomePage = () => {
                                             <p>{section.courseText[i]} </p>
                                             <div className='flex text-[0.8vw] my-[0.2vw]'>
                                                 <p className='text-[0.7vw] text-strathmore-grey mb-[1vw]'>
-                                                  By: 
+                                                  By: {section.byWho}
                                                 </p>
                                                 
                                             </div>
