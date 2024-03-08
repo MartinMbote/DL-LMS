@@ -5,14 +5,42 @@ import { pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg
 const UserHomePage = () => {
 
   const stars = [star, star, star, star, star];
-    const coursesImages = [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics];
-    const courseText = ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"];
+    // const coursesImages = [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics];
+    // const courseText = ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"];
 
-    const course = {
-      title: "Introduction to JavaScript",
-      subtitle: "Learn the fundamentals of JavaScript programming language",
-      difficulty: "Beginner"
-    };
+    const sectionTitle = [
+      {
+        title: "Top Picks for Martin",
+
+        coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
+
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+      }, 
+
+      {
+        title: "This weeks top Courses",
+
+        coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
+
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+      },
+
+      {
+        title: "Popular on DL Learning",
+
+        coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
+        
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+      },
+
+      {
+        title: "New Releases",
+
+        coursesImages: [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics],
+        
+        courseText: ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"]
+      }
+    ];
 
   return (
     <div>
@@ -66,7 +94,7 @@ const UserHomePage = () => {
           </div>
 
 
-          <div className='mb-[3vw]'>
+          {/* <div className='mb-[3vw]'>
             <div className='border w-full h-[8.5vw] bg-opacity-20 bg-strathmore-grey'>
                 <p className='text-strathmore-red text-[3vw] mt-[1.8vw] ml-[8vw]'>
                     Top Picks for Martin
@@ -116,7 +144,64 @@ const UserHomePage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
+
+
+        {sectionTitle.map((section, index) => (
+          <div className='mb-[3vw]' key={index}>
+            <div className='border w-full h-[8.5vw] bg-opacity-20 bg-strathmore-grey'>
+                <p className='text-strathmore-red text-[3vw] mt-[1.8vw] ml-[8vw]'>
+                    {section.title}
+                </p>
+            </div>
+
+            <div>
+
+              <div className='flex justify-end gap-[0.5vw] mr-[2vw] mt-[1.3vw]'>
+                <img src={clearArrow} className='h-[2vw] rotate-180 cursor-pointer' />
+
+                <img src={clearArrow} className='h-[2vw] cursor-pointer' />
+              </div>
+
+              <div className='flex justify-center mt-[1.2vw]'>
+                    <div className='border w-[80vw] py-[3vw] flex'>
+                        
+                        <div className='flex gap-[2vw] overflow-x-auto'>
+
+                          <div className='w-[0vw] h-[1vw] bg-black'></div>
+
+                            {section.coursesImages.map((image, i) => (
+                                <div key={i} className='cursor-pointer flex-shrink-0'>
+                                    <img src={image} className='h-[9vw]' />
+                                    <div className='flex ml-[1.5vw] text-[1vw] font-bold mt-[0.7vw]'>
+                                        <div>
+                                            <p className='text-strathmore-grey font-semibold mt-[-0.4vw] mb-[0.2vw] text-[0.95vw]'>
+                                              Course
+                                            </p>
+                                            <p>{section.courseText[i]} </p>
+                                            <div className='flex text-[0.8vw] my-[0.2vw]'>
+                                                <p className='text-[0.7vw] text-strathmore-grey mb-[1vw]'>
+                                                  By: 
+                                                </p>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+
+                          <div className='w-[0vw] h-[1vw] bg-black'></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+          </div>
+        ))}
+
+
         </div>
       </div>
     </div>
