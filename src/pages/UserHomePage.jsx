@@ -1,12 +1,18 @@
 import React from 'react'
 import { NavBar } from '../components'
-import { pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics } from '../assets'
+import { pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, clearArrow } from '../assets'
 
 const UserHomePage = () => {
 
   const stars = [star, star, star, star, star];
-    const coursesImages = [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics];
-    const courseText = ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"];
+    const coursesImages = [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics];
+    const courseText = ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"];
+
+    const course = {
+      title: "Introduction to JavaScript",
+      subtitle: "Learn the fundamentals of JavaScript programming language",
+      difficulty: "Beginner"
+    };
 
   return (
     <div>
@@ -60,7 +66,7 @@ const UserHomePage = () => {
           </div>
 
 
-          <div>
+          <div className='mb-[3vw]'>
             <div className='border w-full h-[8.5vw] bg-opacity-20 bg-strathmore-grey'>
                 <p className='text-strathmore-red text-[3vw] mt-[1.8vw] ml-[8vw]'>
                     Top Picks for Martin
@@ -68,68 +74,43 @@ const UserHomePage = () => {
             </div>
 
             <div>
+
+              <div className='flex justify-end gap-[0.5vw] mr-[2vw] mt-[1.3vw]'>
+                <img src={clearArrow} className='h-[2vw] rotate-180 cursor-pointer' />
+
+                <img src={clearArrow} className='h-[2vw] cursor-pointer' />
+              </div>
                 
 
                 <div className='flex justify-center mt-[1.2vw]'>
-                    <div className='border w-[80vw] py-[3vw] flex justify-center'>
-                        {/* <div>
+                    <div className='border w-[80vw] py-[3vw] flex'>
+                        
+                        <div className='flex gap-[2vw] overflow-x-auto'>
+
+                          <div className='w-[0vw] h-[1vw] bg-black'></div>
+
                             {coursesImages.map((image, index) => (
-                                <img key={index} src={image} className='h-[9vw]' />
-                            ))}
-
-                            <div className='flex justify-center text-[1vw] font-bold mt-[0.7vw]'>
-                                <div>
-                                    {courseText.map((text, index) => (
-                                        <p key={index}>
-                                            {text}
-                                        </p>
-                                    ))}
-
-                                    <div className='flex text-[0.8vw] my-[0.2vw]'>
-                                        <p>
-                                            5.0
-                                        </p>
-
-                                        <div className='flex gap-[0.2vw] mt-[0.25vw]  mx-[0.5vw]'>
-                                            {stars.map((star, index) => (
-                                                <img key={index} src={star} className='h-[0.7vw]' />
-                                            ))}
-                                        </div>
-
-                                        <p className='text-strathmore-grey'>
-                                            (23,121)
-                                        </p>
-                                    </div>
-
-                                    <p className='text-[0.9vw]'>
-                                        $74.69
-                                    </p>
-                                </div>
-                            </div>
-                        </div> */}
-
-
-                        <div className='flex gap-[2vw]'>
-                            {coursesImages.map((image, index) => (
-                                <div key={index} className='cursor-pointer'>
+                                <div key={index} className='cursor-pointer flex-shrink-0'>
                                     <img src={image} className='h-[9vw]' />
-                                    <div className='flex justify-center text-[1vw] font-bold mt-[0.7vw]'>
+                                    <div className='flex ml-[1.5vw] text-[1vw] font-bold mt-[0.7vw]'>
                                         <div>
+                                            <p className='text-strathmore-grey font-semibold mt-[-0.4vw] mb-[0.2vw] text-[0.95vw]'>
+                                              Course
+                                            </p>
                                             <p>{courseText[index]}</p>
                                             <div className='flex text-[0.8vw] my-[0.2vw]'>
-                                                <p>5.0</p>
-                                                <div className='flex gap-[0.2vw] mt-[0.25vw] mx-[0.5vw]'>
-                                                    {stars.map((star, idx) => (
-                                                        <img key={idx} src={star} className='h-[0.7vw]' />
-                                                    ))}
-                                                </div>
-                                                <p className='text-strathmore-grey'>(23,121)</p>
+                                                <p className='text-[0.7vw] text-strathmore-grey mb-[1vw]'>
+                                                  By: 
+                                                </p>
+                                                
                                             </div>
-                                            <p className='text-[0.9vw]'>$74.69</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             ))}
+
+                          <div className='w-[0vw] h-[1vw] bg-black'></div>
                         </div>
 
                     </div>

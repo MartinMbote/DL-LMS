@@ -23,5 +23,6 @@ import messengerIcon from "./messengerIcon.png";
 import me from "./me.jpg";
 import downArrow from "./down-arrow.png";
 import playButton from "./play-button.png";
+import clearArrow from "./black-and-white-arrow.png"
 
-export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow, playButton };
+export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow, playButton, clearArrow };
