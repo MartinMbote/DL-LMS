@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavBar } from '../components'
+import { NavBar, SidePanel } from '../components'
 import { pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, clearArrow } from '../assets'
 
 const UserHomePage = () => {
@@ -55,11 +55,7 @@ const UserHomePage = () => {
       <NavBar isLoggedIn={true} />
       
       <div className='flex'>
-        <div className='w-[20.5vw] h-[43.8vw] bg-nav-blue'>
-          <p>
-            Sidepanel
-          </p>
-        </div>
+        <SidePanel />
 
         
         <div className='w-full h-[43.8vw] overflow-y-auto'>

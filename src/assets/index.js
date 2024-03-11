@@ -24,5 +24,11 @@ import me from "./me.jpg";
 import downArrow from "./down-arrow.png";
 import playButton from "./play-button.png";
 import clearArrow from "./black-and-white-arrow.png"
+import homeIconBlue from "./homeIcon-blue.png";
+import homeIconWhite from "./homeIcon-white.png";
+import folderIconWhite from "./folderIcon-white.png";
+import coursesIcon from "./coursesIcon.png";
+import certificateIcon from "./certificateIcon.png";
+import helpCenterImage from "./helpCenterImage.png";
 
-export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow, playButton, clearArrow };
+export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow, playButton, clearArrow, homeIconWhite, homeIconBlue, folderIconWhite, coursesIcon, certificateIcon, helpCenterImage };
