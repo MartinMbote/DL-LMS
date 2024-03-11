@@ -25,11 +25,16 @@ const CoursePage = () => {
   ];
 
   const [rotation, setRotation] = useState(0);
+  const [r,setR] = useState({0:0,1:0,2:0})
+  const [v,setV] = useState({0:'hidden',1:'hidden',2:'hidden'})
   const [view, setView] = useState('hidden');
 
-  const rotateImage = () => {
+  const rotateImage = (ind) => {
     setRotation(rotation + 180); // Rotate 90 degrees on each click
-    setView(view === 'hidden' ? 'flex' : 'hidden');
+    // setView(view === 'hidden' ? 'flex' : 'hidden');
+    setR((pr)=>({...pr,[ind] : r[ind] + 180}))
+
+    setV((prev)=>({...prev,[ind] : v[ind] === 'hidden' ? 'flex' : 'hidden'}))
   };
 
   return (
@@ -166,19 +171,19 @@ const CoursePage = () => {
               <div className='w-[22.8vw] border-[0.15vw] rounded-[0.4vw] border-gray-300 '>
                 {overviewData.map((info, index) => (
                   <div className='border-t-[0.15vw]' key={index}>
-                    <div className='py-[1.8vw] text-[1.1vw] flex font-semibold  pl-[2vw] cursor-pointer' onClick={rotateImage}>
+                    <div className='py-[1.8vw] text-[1.1vw] flex font-semibold  pl-[2vw] cursor-pointer' onClick={()=>rotateImage(index)}>
                       <p className='w-[16vw]'>
                         {info.title}
                       </p>
 
                       <img src={downArrow} 
                         className='transition ease-in-out duration-600 h-[1vw] mt-[0.32vw]' 
-                        style={{ transform: `rotate(${rotation}deg)` }}
+                        style={{ transform: `rotate(${r[index]}deg)` }}
                       />
                     </div>
 
                     {info.subTitle.map((subInfo, i) => (
-                      <div className={`w-full h-[3vw] active:bg-nav-blue active:bg-opacity-30 flex gap-[0.8vw] cursor-pointer  ${view}`}>
+                      <div className={`w-full h-[3vw] active:bg-nav-blue active:bg-opacity-30 flex gap-[0.8vw] cursor-pointer  ${v[index]}`}>
                         <div className='h-full w-[0.4vw] opacity-0 bg-nav-blue'></div>
 
                         <img src={playButton} className='h-[1.2vw] mt-[1vw]' />
