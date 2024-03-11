@@ -6,8 +6,23 @@ import ReactPlayer from 'react-player';
 const CoursePage = () => {
 
   const stars = [star, star, star, star, star];
-  const courseMainTopic = ["Overview of Python"];
-  const courseSubTopic = ["History of Python", "Why Python is Popular", "Applications of Python", "Installing Python"];
+
+  const overviewData = [
+    {
+      title: "Overview of Python",
+      subTitle: ["History of Python", "Why Python is Popular", "Applications of Python", "Installing Python"]
+    }, 
+
+    {
+      title: "Basic Syntax",
+      subTitle: ["Syntax"]
+    }, 
+
+    {
+      title: "Control Flow",
+      subTitle: ["flowing"]
+    }
+  ];
 
   const [rotation, setRotation] = useState(0);
   const [view, setView] = useState('hidden');
@@ -118,7 +133,7 @@ const CoursePage = () => {
               </p>
 
               {/* <div className='w-[22.8vw] border-[0.15vw] rounded-[0.4vw] border-gray-300 '>
-                <div>
+                <div className='border-t-[0.15vw]'>
                   <div className='py-[1.8vw] text-[1.1vw] flex gap-[6vw] font-semibold  pl-[2vw] cursor-pointer' onClick={rotateImage}>
                     <p>
                       Overview of Python
@@ -148,12 +163,12 @@ const CoursePage = () => {
                 </div>
               </div> */}
 
-              {courseMainTopic.map((mainTopic, index) => (
-                <div className='w-[22.8vw] border-[0.15vw] rounded-[0.4vw] border-gray-300' key={index}>
-                  <div>
-                    <div className='py-[1.8vw] text-[1.1vw] flex gap-[6vw] font-semibold  pl-[2vw] cursor-pointer' onClick={rotateImage}>
-                      <p>
-                        {mainTopic}
+              <div className='w-[22.8vw] border-[0.15vw] rounded-[0.4vw] border-gray-300 '>
+                {overviewData.map((info, index) => (
+                  <div className='border-t-[0.15vw]' key={index}>
+                    <div className='py-[1.8vw] text-[1.1vw] flex font-semibold  pl-[2vw] cursor-pointer' onClick={rotateImage}>
+                      <p className='w-[16vw]'>
+                        {info.title}
                       </p>
 
                       <img src={downArrow} 
@@ -162,31 +177,15 @@ const CoursePage = () => {
                       />
                     </div>
 
-                    {/* <div className={`w-full h-[3vw] bg-nav-blue bg-opacity-30 flex gap-[0.8vw]  ${view}`}>
-                      <div className='h-full w-[0.4vw] bg-nav-blue'></div>
-
-                      <img src={playButton} className='h-[1.2vw] mt-[1vw]' />
-
-                      <div className='font-semibold mt-[0.35vw]'>
-                        <p className='text-[0.85vw]'>
-                          History of Python
-                        </p>
-
-                        <p className='text-[0.7vw] text-strathmore-grey'>
-                          10m 30s
-                        </p>
-                      </div>
-                    </div> */}
-
-                    {courseSubTopic.map((subTopic, index) => (
-                      <div className={`w-full h-[3vw] bg-nav-blue bg-opacity-30 flex gap-[0.8vw]  ${view}`}>
-                        <div className='h-full w-[0.4vw] bg-nav-blue'></div>
+                    {info.subTitle.map((subInfo, i) => (
+                      <div className={`w-full h-[3vw] active:bg-nav-blue active:bg-opacity-30 flex gap-[0.8vw] cursor-pointer  ${view}`}>
+                        <div className='h-full w-[0.4vw] opacity-0 bg-nav-blue'></div>
 
                         <img src={playButton} className='h-[1.2vw] mt-[1vw]' />
 
                         <div className='font-semibold mt-[0.35vw]'>
                           <p className='text-[0.85vw]'>
-                            {subTopic}
+                            {info.subTitle[i]}
                           </p>
 
                           <p className='text-[0.7vw] text-strathmore-grey'>
@@ -195,10 +194,9 @@ const CoursePage = () => {
                         </div>
                       </div>
                     ))}
-
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

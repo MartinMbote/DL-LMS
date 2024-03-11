@@ -32,7 +32,7 @@ const SearchComponent = ({ onSearch, isLoggedIn }) => {
             placeholder="What do you want to Learn?"
             value={query}
             onChange={handleInputChange}
-            className='h-[3vw] w-[22.5vw] bg-mockup-yellow placeholder-white text-[1vw] pl-[1.5vw]'
+            className='h-[3vw] w-[22.5vw] bg-mockup-yellow placeholder-white text-[1vw] pl-[1.5vw] focus:outline-none'
         />
         <button onClick={handleSearch} className='w-[2.6vw] bg-mockup-yellow rounded-r-[0.7vw]'>
             <img src={searchIcon} className='h-[1.3vw]' />
@@ -56,7 +56,7 @@ const SearchComponent = ({ onSearch, isLoggedIn }) => {
             placeholder="What do you want to Learn?"
             value={query}
             onChange={handleInputChange}
-            className='h-[3vw] w-[22.5vw] bg-search-green placeholder-white text-[1vw] pl-[1.5vw]'
+            className='h-[3vw] w-[22.5vw] bg-search-green placeholder-white text-[1vw] pl-[1.5vw] focus:outline-none'
         />
         <button onClick={handleSearch} className='w-[2.6vw] bg-search-green rounded-r-[0.7vw]'>
             <img src={searchIcon} className='h-[1.3vw]' />
