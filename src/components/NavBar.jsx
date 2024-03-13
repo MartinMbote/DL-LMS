@@ -97,11 +97,19 @@ const NavBar = ({ isLoggedIn }) => {
           </p>
           </Link>
 
-          <div className='w-[7.5vw] h-[2.9vw] border-[0.15vw] rounded-[0.6vw] text-center text-[1.2vw] leading-[2.5vw] cursor-pointer hover:text-strathmore-yellow hover:border-strathmore-yellow transition-colors duration-200 ease-in-out'>
+          {/* <div className='w-[7.5vw] h-[2.9vw] border-[0.15vw] rounded-[0.6vw] text-center text-[1.2vw] leading-[2.5vw] cursor-pointer hover:text-strathmore-yellow hover:border-strathmore-yellow transition-colors duration-200 ease-in-out'>
             <p>
               Get Started
             </p>
-          </div>
+          </div> */}
+
+          <Link to='/dl-lms/SignUpPage'>
+            <div className='w-[7.5vw] h-[2.9vw] border-[0.15vw] rounded-[0.6vw] text-center text-[1.2vw] leading-[2.5vw] cursor-pointer hover:text-strathmore-yellow hover:border-strathmore-yellow transition-colors duration-200 ease-in-out'>
+              <p>
+                Get Started
+              </p>
+            </div>
+          </Link>
         </div>
       </nav>
       )}
