@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavBar, Hero, Courses, Categories, Comments, Footer } from '../components'
 import { coprateImage, ladySpecs } from '../assets';
+import { Link } from 'react-router-dom'
 
 
 const HomePage = () => {
@@ -17,11 +18,19 @@ const HomePage = () => {
               Drive business impact <br /> Get access to courses for your business, higher education, or government team
             </p>
 
-            <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white text-[1vw] drop-shadow'>
+            {/* <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white text-[1vw] drop-shadow'>
               <p>
                 Get DL for Business
               </p>
-            </div>
+            </div> */}
+
+            <Link to='/dl-lms/SignUpBusiness'>
+              <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white text-[1vw] drop-shadow'>
+                <p>
+                  Get DL for Business
+                </p>
+              </div>
+            </Link>
           </div>
 
           <img src={coprateImage} className='h-[44.5vw] mt-[4vw] pb-[3vw]' />
@@ -40,11 +49,19 @@ const HomePage = () => {
                 Instructors from around the world teach millions of learners on Digital Learning. We provide the tools and skills to teach what you love.
               </p>
 
-              <div className='w-[12vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white drop-shadow text-[1vw]'>
+              {/* <div className='w-[12vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white drop-shadow text-[1vw]'>
               <p>
                 Start Teaching Today
               </p>
-            </div>
+              </div> */}
+
+              <Link to='/dl-lms/SignUpPage'>
+                <div className='w-[12vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white drop-shadow text-[1vw]'>
+                  <p>
+                    Start Teaching Today
+                  </p>
+                </div>
+              </Link>
             </div>
 
             <img src={ladySpecs} className='h-[28vw]' />

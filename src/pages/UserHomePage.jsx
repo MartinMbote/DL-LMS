@@ -1,13 +1,12 @@
 import React from 'react'
 import { NavBar, SidePanel } from '../components'
+import { Link } from 'react-router-dom'
 import { pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, clearArrow } from '../assets'
 
 const UserHomePage = () => {
 
   const stars = [star, star, star, star, star];
-    // const coursesImages = [pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics, pythonForDataScience, bigDataImage, dataStructureImg, DataAnalytics];
-    // const courseText = ["Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics", "Python for Data Science", "Advanced Big Data", "Data Structure & Analysis", "Data Analytics"];
-
+    
     const sectionTitle = [
       {
         title: "Top Picks for Martin",
@@ -174,7 +173,7 @@ const UserHomePage = () => {
 
                           <div className='w-[0vw] h-[1vw] bg-black'></div>
 
-                            {section.coursesImages.map((image, i) => (
+                            {/* {section.coursesImages.map((image, i) => (
                                 <div key={i} className='cursor-pointer flex-shrink-0'>
                                     <img src={image} className='h-[9vw]' />
                                     <div className='flex ml-[1.5vw] text-[1vw] font-bold mt-[0.7vw]'>
@@ -193,7 +192,30 @@ const UserHomePage = () => {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))} */}
+
+                            <Link className='flex gap-[2vw]' to='/dl-lms/LearnCoursePage'>
+                              {section.coursesImages.map((image, i) => (
+                                  <div key={i} className='cursor-pointer flex-shrink-0'>
+                                      <img src={image} className='h-[9vw]' />
+                                      <div className='flex ml-[1.5vw] text-[1vw] font-bold mt-[0.7vw]'>
+                                          <div>
+                                              <p className='text-strathmore-grey font-semibold mt-[-0.4vw] mb-[0.2vw] text-[0.95vw]'>
+                                                Course
+                                              </p>
+                                              <p>{section.courseText[i]} </p>
+                                              <div className='flex text-[0.8vw] my-[0.2vw]'>
+                                                  <p className='text-[0.7vw] text-strathmore-grey mb-[1vw]'>
+                                                    By: {section.byWho}
+                                                  </p>
+                                                  
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              ))}
+                            </Link>
 
                           <div className='w-[0vw] h-[1vw] bg-black'></div>
                         </div>

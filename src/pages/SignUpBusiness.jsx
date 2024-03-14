@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { logInwhite, logIn, googleLogo } from '../assets';
 
-const SignUpPage = () => {
+const SignUpBusiness = () => {
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -77,11 +77,11 @@ const SignUpPage = () => {
                 <div className='bg-white flex justify-center py-[2vw] px-[2vw] rounded-[1vw]'>
                     <div className='text-center'>
                         <p className='font-bold text-[1.2vw]'>
-                            Make the most of your professional life
+                            Make the most of your Business
                         </p>
 
                         <p className='text-[0.9vw]'>
-                            Please fill in your details to sign in to your account
+                            Please fill in your details to sign in to your Business account
                         </p>
 
                         <div className='text-left font-semibold mt-[2vw] mb-[1vw]'>
@@ -90,19 +90,19 @@ const SignUpPage = () => {
                                     <div className='flex gap-[1.5vw] mb-[1vw]'>
                                         <div>
                                             <p className='text-[0.9vw]'>
-                                                First Name: 
+                                                Company Name: 
                                             </p>
 
-                                            <input type="text" name="firstName" value={firstName} onChange={handleChange} placeholder='Enter First Name' className='border placeholder-gray-500 text-[0.8vw] pl-[1vw] border-gray-400 rounded-[0.4vw] w-[15vw] h-[1.7vw]' />
+                                            <input type="text" name="firstName" value={firstName} onChange={handleChange} placeholder='Enter Company Name' className='border placeholder-gray-500 text-[0.8vw] pl-[1vw] border-gray-400 rounded-[0.4vw] w-[15vw] h-[1.7vw]' />
                                         </div>
 
-                                        <div>
+                                        {/* <div>
                                             <p className='text-[0.9vw]'>
                                                 Last Name: 
                                             </p>
 
                                             <input type="text" name="lastName" value={lastName} onChange={handleChange} placeholder='Enter Last Name' className='border placeholder-gray-500 text-[0.8vw] pl-[1vw] border-gray-400 rounded-[0.4vw] w-[15vw] h-[1.7vw]' />
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     <div className='flex gap-[1.5vw] mb-[1vw]'>
@@ -114,13 +114,13 @@ const SignUpPage = () => {
                                             <input type="email" name="email" value={email} onChange={handleChange} placeholder='Enter Email ID' className='border placeholder-gray-500 text-[0.8vw] pl-[1vw] border-gray-400 rounded-[0.4vw] w-[15vw] h-[1.7vw]' />
                                         </div>
 
-                                        <div>
+                                        {/* <div>
                                             <p className='text-[0.9vw]'>
                                                 Username: 
                                             </p>
 
                                             <input type="text" name="username" value={username} onChange={handleChange} placeholder='Enter preferred Username' className='border placeholder-gray-500 text-[0.8vw] pl-[1vw] border-gray-400 rounded-[0.4vw] w-[15vw] h-[1.7vw]' />
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     <div className='flex gap-[1.5vw] mb-[1vw]'>
@@ -197,4 +197,4 @@ const SignUpPage = () => {
   )
 }
 
-export default SignUpPage
+export default SignUpBusiness
