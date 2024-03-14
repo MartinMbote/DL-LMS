@@ -30,5 +30,8 @@ import folderIconWhite from "./folderIcon-white.png";
 import coursesIcon from "./coursesIcon.png";
 import certificateIcon from "./certificateIcon.png";
 import helpCenterImage from "./helpCenterImage.png";
+import logInwhite from "./log-in-white.png"; 
+import logIn from "./log-in.png";
+import googleLogo from "./googleLogo.png"
 
-export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow, playButton, clearArrow, homeIconWhite, homeIconBlue, folderIconWhite, coursesIcon, certificateIcon, helpCenterImage };
+export { triangle, searchIcon, pinksweater, pythonForDataScience, star, bigDataImage, dataStructureImg, DataAnalytics, designIcon, developmentIcon, itIcon, artsIcon, businessIcon, marketingIcon, personaldevelopmentIcon, photoIcon, coprateImage, nextArrow, commentImage, ladySpecs, bellIcon, messengerIcon, me, downArrow, playButton, clearArrow, homeIconWhite, homeIconBlue, folderIconWhite, coursesIcon, certificateIcon, helpCenterImage, logInwhite, logIn, googleLogo };
