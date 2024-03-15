@@ -25,7 +25,7 @@ const HomePage = () => {
             </div> */}
 
             <Link to='/dl-lms/SignUpBusiness'>
-              <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white text-[1vw] drop-shadow'>
+              <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white text-[1vw] drop-shadow hover:scale-105 transition-transform'>
                 <p>
                   Get DL for Business
                 </p>
@@ -56,7 +56,7 @@ const HomePage = () => {
               </div> */}
 
               <Link to='/dl-lms/SignUpPage'>
-                <div className='w-[12vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white drop-shadow text-[1vw]'>
+                <div className='w-[12vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white border-[0.15vw] border-white drop-shadow text-[1vw] hover:scale-105 transition-transform'>
                   <p>
                     Start Teaching Today
                   </p>

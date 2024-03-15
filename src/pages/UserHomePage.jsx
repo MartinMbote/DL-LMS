@@ -77,13 +77,13 @@ const UserHomePage = () => {
                   </div>
                 </Link> */}
 
-                <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white'>
+                <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white hover:scale-105 transition-transform'>
                     <p>
                       Start my free Month
                     </p>
                   </div>
 
-                <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey text-[1vw]'>
+                <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey text-[1vw] hover:scale-105 transition-transform'>
                   <p>
                     Buy for my Team
                   </p>
@@ -167,7 +167,7 @@ const UserHomePage = () => {
               </div>
 
               <div className='flex justify-center mt-[1.2vw]'>
-                    <div className='border w-[80vw] py-[3vw] flex'>
+                    <div className='border w-[80vw] py-[2vw] flex'>
                         
                         <div className='flex gap-[2vw] overflow-x-auto'>
 
@@ -196,7 +196,7 @@ const UserHomePage = () => {
 
                             <Link className='flex gap-[2vw]' to='/dl-lms/LearnCoursePage'>
                               {section.coursesImages.map((image, i) => (
-                                  <div key={i} className='cursor-pointer flex-shrink-0'>
+                                  <div key={i} className='cursor-pointer flex-shrink-0 hover:scale-105 transition-transform mt-[1vw]'>
                                       <img src={image} className='h-[9vw]' />
                                       <div className='flex ml-[1.5vw] text-[1vw] font-bold mt-[0.7vw]'>
                                           <div>

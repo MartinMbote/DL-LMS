@@ -17,7 +17,7 @@ const Hero = () => {
 
           <div className=' flex gap-[2.8vw] justify-center'>
             <Link to="/dl-lms/SignUpPage">
-              <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white'>
+              <div className='w-[11vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white hover:scale-105 transition-transform'>
                 <p>
                   Try my free Month
                 </p>
@@ -31,7 +31,7 @@ const Hero = () => {
             </div> */}
 
             <Link to='/dl-lms/SignUpBusiness'>
-              <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey text-[1vw]'>
+              <div className='w-[11vw] h-[2.8vw] border-[0.15vw] border-strathmore-grey text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-strathmore-grey text-[1vw] hover:scale-105 transition-transform'>
                 <p>
                   Try DL for Business
                 </p>

@@ -153,7 +153,7 @@ const SignUpPage = () => {
                                 </label>
                                 
                                 <div className='flex justify-center'>
-                                    <button type="submit" className='flex bg-nav-blue text-white text-[0.9vw] text-center w-[18vw] h-[2vw] pl-[5.5vw] pt-[0.25vw] rounded-[0.3vw] gap-[2.5vw]'>
+                                    <button type="submit" className='flex bg-nav-blue text-white text-[0.9vw] text-center w-[18vw] h-[2vw] pl-[5.5vw] pt-[0.25vw] rounded-[0.3vw] gap-[2.5vw] hover:scale-105 transition-transform'>
                                         Create Account
 
                                         <img src={logInwhite} className='h-[1.2vw] mt-[0.15vw]' />
@@ -174,7 +174,7 @@ const SignUpPage = () => {
 
                         <div className='flex justify-center mb-[1vw]'>                            
                             <Link to='/dl-lms/UserHomePage'>
-                                <button className='flex border-gray-500 border-[0.15vw] text-[0.9vw] text-center w-[18vw] h-[2vw] pl-[2.5vw] pt-[0.25vw] rounded-[0.3vw] font-semibold gap-[3.5vw]'>
+                                <button className='flex border-gray-500 border-[0.15vw] text-[0.9vw] text-center w-[18vw] h-[2vw] pl-[2.5vw] pt-[0.25vw] rounded-[0.3vw] font-semibold gap-[3.5vw] hover:scale-105 transition-transform'>
                                     <img src={logIn} className='h-[1.2vw] mt-[0.1vw]' />
 
                                     Sign In 
@@ -183,7 +183,7 @@ const SignUpPage = () => {
                         </div>
 
                         <div className='flex justify-center mb-[1.5vw]'>
-                            <button className='flex border-gray-500 border-[0.15vw] text-[0.9vw] text-center w-[18vw] h-[2vw] pl-[2.5vw] pt-[0.25vw] rounded-[0.3vw] font-semibold gap-[1vw]'>
+                            <button className='flex border-gray-500 border-[0.15vw] text-[0.9vw] text-center w-[18vw] h-[2vw] pl-[2.5vw] pt-[0.25vw] rounded-[0.3vw] font-semibold gap-[1vw] hover:scale-105 transition-transform'>
                                 <img src={googleLogo} className='h-[1.2vw] mt-[0.1vw]' />
 
                                 Continue with Google 
