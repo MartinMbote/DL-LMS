@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SearchComponent from './SearchComponent'
 import { bellIcon, messengerIcon, me, downArrow } from '../assets'
 import { Link } from 'react-router-dom'
 
 const NavBar = ({ isLoggedIn }) => {
+  
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
+  const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+  
   return (
     <div>
       {isLoggedIn ? (
@@ -44,16 +49,16 @@ const NavBar = ({ isLoggedIn }) => {
 
         <div className='absolute right-[1.5vw] top-[1vw] flex text-white gap-[0.95vw]'>
           <div className='flex gap-[0.8vw] mt-[0.8vw]'>
-            <div>
+            <div onClick={() => setIsNotificationVisible(!isNotificationVisible)}>
               <img src={bellIcon} className='h-[1.5vw] cursor-pointer' />
 
               <div className='w-[0.5vw] h-[0.5vw] bg-red-600 mt-[-1.4vw] ml-[0.8vw] rounded-[3vw] z-10'></div>
             </div>
 
-            <img src={messengerIcon} className='h-[1.4vw] cursor-pointer' />
+            <img src={messengerIcon} className='h-[1.4vw] cursor-pointer' onClick={() => setIsMessageVisible(!isMessageVisible)} />
           </div>
 
-          <div className='flex gap-[0.5vw] cursor-pointer'>
+          <div className='flex gap-[0.5vw] cursor-pointer' onClick={() => setIsVisible(!isVisible)}>
             <img src={me} className='h-[3vw] rounded-[2vw]' />
 
             <div className='text-strathmore-grey text-[0.9vw] font-semibold flex gap-[0.3vw] mt-[0.7vw]'>
@@ -65,6 +70,74 @@ const NavBar = ({ isLoggedIn }) => {
             </div>
           </div>
         </div>
+
+        {isVisible && (
+          <div className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged text-[1vw] border'>          
+            <div className='cursor-pointer'>
+              <p className='ml-[1vw] py-[0.3vw]'>
+                My Profile
+              </p>
+
+              <div className='w-full h-[0.1vw] bg-gray-200'></div>
+            </div>
+
+            <div className='cursor-pointer'>
+              <p className='ml-[1vw] py-[0.3vw]'>
+                Option
+              </p>
+
+              <div className='w-full h-[0.1vw] bg-gray-200'></div>
+            </div>
+
+            <div className='cursor-pointer'>
+              <p className='ml-[1vw] py-[0.3vw]'>
+                Log Out
+              </p>
+
+              <div className='w-full h-[0.1vw] bg-gray-200'></div>
+            </div>
+          </div>
+        )}
+
+        {isMessageVisible && (
+          <div className='absolute w-[17vw] right-[1.7vw] top-[5.5vw] bg-nav-logged text-[1vw] border'>
+            <div className='cursor-pointer'>
+              <p className='ml-[1vw] py-[0.3vw]'>
+                In publishing and graphic design, Lorem ipsum is a 
+              </p>
+
+              <div className='w-full h-[0.1vw] bg-gray-200'></div>
+            </div>
+
+            <div className='cursor-pointer'>
+              <p className='ml-[1vw] py-[0.3vw]'>
+                In publishing and graphic design, Lorem ipsum is a 
+              </p>
+
+              <div className='w-full h-[0.1vw] bg-gray-200'></div>
+            </div>
+        </div>
+        )}
+
+        {isNotificationVisible && (
+          <div className='absolute w-[13vw] right-[5.5vw] top-[5.5vw] bg-nav-logged text-[1vw] border'>
+              <div className='cursor-pointer'>
+                <p className='ml-[1vw] py-[0.3vw]'>
+                  Notification 1 
+                </p>
+
+                <div className='w-full h-[0.1vw] bg-gray-200'></div>
+              </div>
+
+              <div className='cursor-pointer'>
+                <p className='ml-[1vw] py-[0.3vw]'>
+                  Notification 2
+                </p>
+
+                <div className='w-full h-[0.1vw] bg-gray-200'></div>
+              </div>            
+          </div>
+        )}
       </nav>
       ) : (
         <nav className='w-full h-[5vw] bg-nav-blue'>
