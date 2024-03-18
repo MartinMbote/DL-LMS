@@ -13,7 +13,7 @@ const HomePage = () => {
         <Categories />
 
         <div className='flex gap-[1.5vw]'>
-          <div className='w-[40.5vw] h-[30vw] ml-[8vw] mt-[10vw] bg-opacity-20 bg-strathmore-grey pl-[5vw] pr-[3vw] pt-[4.5vw]'>
+          <div className='w-[40.5vw] h-[30vw] ml-[8vw] mt-[10vw] bg-opacity-20 bg-strathmore-grey pl-[5vw] pr-[3vw] pt-[4.5vw] rounded-[0.3vw] drop-shadow'>
             <p className='text-strathmore-red text-[2.3vw] mb-[2.2vw]'>
               Drive business impact <br /> Get access to courses for your business, higher education, or government team
             </p>
@@ -41,7 +41,7 @@ const HomePage = () => {
         <div>
           <div className='mb-[7vw] flex justify-center gap-[5vw]'>
             <div className='w-[29vw]'>
-              <p className='text-strathmore-red text-[2.3vw] mb-[0.7vw] mt-[5vw]'>
+              <p className='text-strathmore-red text-[2.3vw] mb-[0.7vw] mt-[5vw] font-bold'>
                 Become an instructor
               </p>
 
