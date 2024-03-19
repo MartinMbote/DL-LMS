@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchComponent from './SearchComponent'
 import { bellIcon, messengerIcon, me, downArrow } from '../assets'
 import { Link } from 'react-router-dom'
@@ -13,10 +13,10 @@ const NavBar = ({ isLoggedIn }) => {
     document.addEventListener("click", handleClickOutside, true)
   }, [])
 
-  const refOne = useRef(false)
-
   const handleClickOutside = (e) => {
       setIsVisible(false)
+      setIsMessageVisible(false)
+      setIsNotificationVisible(false)
   }
   
   return (
@@ -82,7 +82,7 @@ const NavBar = ({ isLoggedIn }) => {
         </div>
 
         {isVisible && (
-          <div ref={refOne} className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged rounded-[0.6vw] text-[1vw] font-semibold border pb-[0.4vw] pt-[0.7vw]'>          
+          <div className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged rounded-[0.6vw] text-[1vw] font-semibold border pb-[0.4vw] pt-[0.7vw]'>          
             <div className='cursor-pointer'>
               <p className='ml-[1.2vw] pt-[0.3vw] mb-[0.6vw]'>
                 Profile
@@ -112,41 +112,41 @@ const NavBar = ({ isLoggedIn }) => {
         )}
 
         {isMessageVisible && (
-          <div className='absolute w-[17vw] right-[1.7vw] top-[5.5vw] bg-nav-logged text-[1vw] border'>
+          <div className='absolute w-[17vw] right-[1.7vw] top-[5.5vw] bg-nav-logged text-[1vw] border pb-[0.4vw] pt-[0.7vw] rounded-[0.6vw]'>
             <div className='cursor-pointer'>
               <p className='ml-[1vw] py-[0.3vw]'>
                 In publishing and graphic design, Lorem ipsum is a 
               </p>
-
-              <div className='w-full h-[0.1vw] bg-gray-200'></div>
             </div>
 
+            <div className='flex justify-center'>
+                <div className='w-[15.5vw] h-[0.05vw] bg-gray-300 mt-[0.3vw]'></div>
+              </div>
+
             <div className='cursor-pointer'>
               <p className='ml-[1vw] py-[0.3vw]'>
                 In publishing and graphic design, Lorem ipsum is a 
               </p>
-
-              <div className='w-full h-[0.1vw] bg-gray-200'></div>
             </div>
         </div>
         )}
 
         {isNotificationVisible && (
-          <div className='absolute w-[13vw] right-[5.5vw] top-[5.5vw] bg-nav-logged text-[1vw] border'>
+          <div className='absolute w-[13vw] right-[5.5vw] top-[5.5vw] bg-nav-logged text-[1vw] border pb-[0.4vw] pt-[0.7vw] rounded-[0.6vw] font-semibold'>
               <div className='cursor-pointer'>
-                <p className='ml-[1vw] py-[0.3vw]'>
+                <p className='ml-[1.2vw] py-[0.3vw]'>
                   Notification 1 
                 </p>
+              </div>
 
-                <div className='w-full h-[0.1vw] bg-gray-200'></div>
+              <div className='flex justify-center'>
+                <div className='w-[10vw] h-[0.05vw] bg-gray-300 mt-[0.3vw]'></div>
               </div>
 
               <div className='cursor-pointer'>
-                <p className='ml-[1vw] py-[0.3vw]'>
+                <p className='ml-[1.2vw] py-[0.3vw]'>
                   Notification 2
-                </p>
-
-                <div className='w-full h-[0.1vw] bg-gray-200'></div>
+                </p>                
               </div>            
           </div>
         )}
