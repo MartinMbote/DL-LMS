@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SearchComponent from './SearchComponent'
 import { bellIcon, messengerIcon, me, downArrow } from '../assets'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,16 @@ const NavBar = ({ isLoggedIn }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true)
+  }, [])
+
+  const refOne = useRef(false)
+
+  const handleClickOutside = (e) => {
+      setIsVisible(false)
+  }
   
   return (
     <div>
@@ -72,7 +82,7 @@ const NavBar = ({ isLoggedIn }) => {
         </div>
 
         {isVisible && (
-          <div className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged rounded-[0.6vw] text-[1vw] font-semibold border pb-[0.4vw] pt-[0.7vw]'>          
+          <div ref={refOne} className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged rounded-[0.6vw] text-[1vw] font-semibold border pb-[0.4vw] pt-[0.7vw]'>          
             <div className='cursor-pointer'>
               <p className='ml-[1.2vw] pt-[0.3vw] mb-[0.6vw]'>
                 Profile
