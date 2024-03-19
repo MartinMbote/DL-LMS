@@ -72,29 +72,31 @@ const NavBar = ({ isLoggedIn }) => {
         </div>
 
         {isVisible && (
-          <div className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged text-[1vw] border'>          
+          <div className='absolute w-[12vw] right-[1.2vw] top-[5.5vw] bg-nav-logged rounded-[0.6vw] text-[1vw] font-semibold border pb-[0.4vw] pt-[0.7vw]'>          
             <div className='cursor-pointer'>
-              <p className='ml-[1vw] py-[0.3vw]'>
-                My Profile
+              <p className='ml-[1.2vw] pt-[0.3vw] mb-[0.6vw]'>
+                Profile
               </p>
-
-              <div className='w-full h-[0.1vw] bg-gray-200'></div>
             </div>
 
             <div className='cursor-pointer'>
-              <p className='ml-[1vw] py-[0.3vw]'>
-                Option
+              <p className='ml-[1.2vw] pt-[0.3vw] mb-[0.6vw]'>
+                Settings
               </p>
-
-              <div className='w-full h-[0.1vw] bg-gray-200'></div>
             </div>
 
             <div className='cursor-pointer'>
-              <p className='ml-[1vw] py-[0.3vw]'>
+              {/* <div className='w-[3vw] h-[0.05vw] bg-gray-300'></div> */}
+
+              <div className='flex justify-center'>
+                <div className='w-[10.5vw] h-[0.05vw] bg-gray-300'></div>
+              </div>
+
+              <p className='ml-[1.2vw] mt-[0.2vw] py-[0.3vw]'>
                 Log Out
               </p>
 
-              <div className='w-full h-[0.1vw] bg-gray-200'></div>
+              {/* <div className='w-full h-[0.1vw] bg-gray-200'></div> */}
             </div>
           </div>
         )}
