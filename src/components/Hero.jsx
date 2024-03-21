@@ -1,11 +1,21 @@
 import React from 'react'
+import { motion } from "framer-motion"
 import { pinksweater } from '../assets'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
     <div>
-      <div className=' w-[100vw] h-[43.8vw]'>
+      <motion.div className=' w-[100vw] h-[43.8vw]' initial={{
+        opacity: 0,        
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 2
+      }}
+      >
         <div className=' absolute w-[31vw] top-[17vw] left-[8vw]'>
           <p className='text-strathmore-red text-[3vw] font-semibold leading-[4vw]'>
             Keep learning at a safe and steady pace.
@@ -43,7 +53,7 @@ const Hero = () => {
         <div className='absolute right-[0vw] top-[8.4vw]'>
           <img src={pinksweater} className='h-[40vw]' />
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
