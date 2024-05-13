@@ -17,7 +17,7 @@ import photoIcon from "./photoIcon.png";
 import coprateImage from "./coprateImage1.jpg";
 import nextArrow from "./nextArrow.png";
 import commentImage from "./commentImage.jpg";
-import ladySpecs from "./ladySpecs.png";
+import ladySpecs from "./ladySpecs.jpg";
 import bellIcon from "./bellIcon.png";
 import messengerIcon from "./messengerIcon.png";
 import me from "./me.jpg";

@@ -64,7 +64,7 @@ const HomePage = () => {
               </Link>
             </div>
 
-            <img src={ladySpecs} className='h-[28vw]' />
+            <img src={ladySpecs} className='h-[28vw] rounded-[1vw]' />
           </div>
         </div>
     </div>
