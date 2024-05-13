@@ -80,7 +80,7 @@ const Comments = () => {
         />
 
         <div className='flex gap-[3vw] ml-[15vw]'>
-          <img src={carouselData[currentIndex].image} className='h-[17vw]' />
+          <img src={carouselData[currentIndex].image} className='h-[16vw] rounded-[10vw] mt-[1.5vw]' />
           <div className='w-[33vw] text-[1.05vw] mt-[1vw]'>
             <div>
               <p className='text-strathmore-grey font-semibold leading-[1.7vw]'>

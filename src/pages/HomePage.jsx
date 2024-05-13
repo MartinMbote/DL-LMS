@@ -33,7 +33,7 @@ const HomePage = () => {
             </Link>
           </div>
 
-          <img src={coprateImage} className='h-[44.5vw] mt-[4vw] pb-[3vw]' />
+          <img src={coprateImage} className='h-[44.5vw] mt-[4vw] pb-[3vw] rounded-[50vw]' />
         </div>
 
         <Comments />
