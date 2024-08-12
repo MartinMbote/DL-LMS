@@ -26,5 +26,17 @@ import CreateContent from "./CreateContent";
 import ActivationPage from "./ActivationPage";
 import  QuizPage from "./QuizPage";
 import CategoriesPage from "./CategoriesPage";
-import CoursesPage from "./CoursesPage"
-export { HomePage, ChapterListPage,ActivationPage, CoursesPage,CategoriesPage,QuizPage, CreateContent,SubChapterListPage, PasswordResetConfirm, CoursePage, Activate, PasswordReset,TeacherDetails,ReviewPrompt, CreateCategoryPage, ProfilePage, PendingTeacherList, MessageBox, MyCoursePage,ChaptersPage ,UserHomePage,SignUpTutor, SignUpPage, SignUpBusiness, InstructorPage, AdminPage, TempPage ,Update, CreateCoursePage};
+import CoursesPage from "./CoursesPage";
+import IncomeReportPage from "./IncomeReportPage";
+import CheckoutPage from"./CheckoutPage";
+import NotePage from "./NotePage";
+import TimedExamPage from "./TimedExamPage";
+import Success from "./success";
+import CreateExamPage from "./CreateExamPage";
+import CreateExamQuestion from "./CreateExamQuestion";
+import Exams from "./Exams";
+import AddQuestionPage from "./AddQuestionPage"
+import ExamPage from "./ExamPage";
+import ExamReview from "./ExamReview";
+import AssignmentCreatePage from "./AssignmentCreatePage";
+export { HomePage, ExamReview, AssignmentCreatePage, ExamPage,NotePage,Success, AddQuestionPage,CreateExamQuestion, Exams, CreateExamPage, TimedExamPage,ChapterListPage,ActivationPage, CheckoutPage, CoursesPage, IncomeReportPage,CategoriesPage,QuizPage, CreateContent,SubChapterListPage, PasswordResetConfirm, CoursePage, Activate, PasswordReset,TeacherDetails,ReviewPrompt, CreateCategoryPage, ProfilePage, PendingTeacherList, MessageBox, MyCoursePage,ChaptersPage ,UserHomePage,SignUpTutor, SignUpPage, SignUpBusiness, InstructorPage, AdminPage, TempPage ,Update, CreateCoursePage};

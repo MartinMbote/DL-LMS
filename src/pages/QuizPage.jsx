@@ -2,18 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { NavBar, SidePanelAdmin } from '../components';
-import Toastify from 'toastify-js';
+import { NavBar, SidePanel } from '../components';
 import "toastify-js/src/toastify.css";
 
 function QuizPage() {
     const [quiz, setQuiz] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [questionState, setQuestionState] = useState(null);
-    const [buttonText, setButtonText] = useState("Submit");
+    const [selectedAnswers, setSelectedAnswers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [results, setResults] = useState(null); // State to store the results
+    const [quizCompleted, setQuizCompleted] = useState(false); // State to track if the quiz is completed
     const { user, authTokens, logout } = useAuth();
     const { courseId, chapterId, subchapterId } = useParams();
 
@@ -21,7 +20,7 @@ function QuizPage() {
         const fetchQuiz = async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/course/${courseId}/chapter/${chapterId}/subchapter/${subchapterId}/content/list/`, 
+                    `http://127.0.0.1:8000/api/course/${courseId}/chapter/${chapterId}/subchapter/${subchapterId}/content/list/`,
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -33,13 +32,11 @@ function QuizPage() {
                 setLoading(false);
             } catch (error) {
                 if (error.response?.status === 401) {
-                    // Handle token refresh if unauthorized
                     await logout();
                 } else {
                     setError('Error fetching quiz data');
                 }
                 setLoading(false);
-                console.error("Error fetching quiz:", error);
             }
         };
 
@@ -47,43 +44,37 @@ function QuizPage() {
     }, [courseId, chapterId, subchapterId, authTokens.access, logout]);
 
     const handleAnswerSelect = (answerIndex) => {
-        setSelectedAnswer(answerIndex);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const currentQuestion = quiz[currentQuestionIndex];
-        const selectedAnswerObj = currentQuestion.answers[selectedAnswer];
-
-        if (selectedAnswerObj.is_correct) {
-            setQuestionState('correct');
-            setButtonText('Next');
-        } else {
-            setQuestionState('incorrect');
-            setButtonText('Try Again');
-        }
-
-        Toastify({
-            text: "Answer submitted",
-            duration: 3000,
-            close: true,
-            gravity: "top",
-            position: "right",
-            style: {
-                background: selectedAnswerObj.is_correct ? "rgba(2, 141, 2, 0.4)" : "rgba(141, 2, 2, 0.4)",
-                borderRadius: "10px",
-                fontSize: "15px",
-                padding: "15px"
-            }
-        }).showToast();
+        setSelectedAnswers((prevAnswers) => {
+            const newAnswers = [...prevAnswers];
+            newAnswers[currentQuestionIndex] = answerIndex;
+            return newAnswers;
+        });
     };
 
     const handleNext = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedAnswer(null);
-        setQuestionState(null);
-        setButtonText("Submit");
+    };
+
+    const handlePrevious = () => {
+        setCurrentQuestionIndex(currentQuestionIndex - 1);
+    };
+
+    const handleSubmit = () => {
+        const results = quiz.map((question, index) => {
+            const selectedAnswer = selectedAnswers[index];
+            const correctAnswer = question.answers.find((answer) => answer.is_correct);
+            return {
+                question: question.question,
+                correctAnswer: correctAnswer.text,
+                userAnswer: question.answers[selectedAnswer].text,
+                isCorrect: correctAnswer.text === question.answers[selectedAnswer].text,
+            };
+        });
+
+        const marks = results.reduce((acc, result) => acc + (result.isCorrect ? 1 : 0), 0);
+
+        setResults({ results, marks, quizLength: quiz.length });
+        setQuizCompleted(true); // Set quiz as completed
     };
 
     const navbarProps = {
@@ -97,16 +88,16 @@ function QuizPage() {
         <div>
             <NavBar {...navbarProps} />
             <div className="flex">
-                <SidePanelAdmin />
+                <SidePanel />
                 <div className="container mx-auto p-4">
-                    <h2 className="text-xl font-semibold mb-4">Quiz</h2>
+                    <h2 className="text-[1.4vw] font-semibold mb-[1vw]">Quiz</h2>
                     {loading && <p>Loading...</p>}
                     {error && <p className="text-red-600">{error}</p>}
-                    {!loading && !error && currentQuestion && (
-                        <form className="space-y-4" onSubmit={handleSubmit}>
+                    {!loading && !error && !quizCompleted && currentQuestion && (
+                        <form className="space-y-4">
                             <div className="space-y-2">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700">
+                                    <label className="py-[1.5vw] text-[1.1vw] font-semibold text-strathmore-grey">
                                         {currentQuestion.question}
                                     </label>
                                     {currentQuestion.answers.map((answer, answerIndex) => (
@@ -116,33 +107,70 @@ function QuizPage() {
                                                 id={`question-${currentQuestionIndex}-answer-${answerIndex}`}
                                                 name={`question-${currentQuestionIndex}`}
                                                 value={answerIndex}
-                                                checked={selectedAnswer === answerIndex}
+                                                checked={selectedAnswers[currentQuestionIndex] === answerIndex}
                                                 onChange={() => handleAnswerSelect(answerIndex)}
-                                                className="mr-2"
+                                                className="mr-2 text-strathmore-grey font-semibold mb-[1.2vw]"
                                             />
-                                            <label htmlFor={`question-${currentQuestionIndex}-answer-${answerIndex}`} className="text-sm font-medium text-gray-700">
+                                            <label htmlFor={`question-${currentQuestionIndex}-answer-${answerIndex}`} className="text-[0.9vw] text-strathmore-grey font-semibold mb-[1.2vw]">
                                                 {answer.text}
                                             </label>
                                         </div>
                                     ))}
-                                    {questionState && (
-                                        <p className={`text-sm ${questionState === 'correct' ? 'text-green-600' : 'text-red-600'}`}>
-                                            {questionState === 'correct' ? 'Correct' : 'Incorrect'}
-                                        </p>
-                                    )}
                                 </div>
                             </div>
-                            <button
-                                type={questionState === 'correct' ? 'button' : 'submit'}
-                                onClick={questionState === 'correct' ? handleNext : undefined}
-                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                            >
-                                {buttonText}
-                            </button>
+                            <div className="flex justify-between">
+                                {currentQuestionIndex > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={handlePrevious}
+                                        className="w-[13.5vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white mt-[0.5vw]"
+                                    >
+                                        Previous
+                                    </button>
+                                )}
+                                {currentQuestionIndex < quiz.length - 1 && (
+                                    <button
+                                        type="button"
+                                        onClick={handleNext}
+                                        className="w-[13.5vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white mt-[0.5vw]"
+                                    >
+                                        Next
+                                    </button>
+                                )}
+                                {currentQuestionIndex === quiz.length - 1 && (
+                                    <button
+                                        type="button"
+                                        onClick={handleSubmit}
+                                        className="w-[13.5vw] h-[2.8vw] bg-nav-blue text-center rounded-[0.6vw] leading-[2.6vw] cursor-pointer font-semibold text-white drop-shadow text-[1vw] border-[0.15vw] border-white mt-[0.5vw]"
+                                    >
+                                        Submit
+                                    </button>
+                                )}
+                            </div>
                         </form>
                     )}
-                    {!loading && !error && !currentQuestion && (
-                        <p>You've completed all the quizzes!</p>
+                    {!loading && !error && quizCompleted && results && (
+                       <div className="bg-white shadow-md rounded-lg p-6">
+                       <h2 className="text-[1.4vw] font-semibold mb-[1vw]">Quiz Results</h2>
+                       <p className="text-lg text-gray-700 mb-4">
+                           You scored <span className="font-semibold text-blue-600">{results.marks}</span> out of <span className="font-semibold text-blue-600">{results.quizLength}</span>
+                       </p>
+                       <ul className="space-y-4">
+                           {results.results.map((result, index) => (
+                               <li key={index} className="bg-gray-50 p-4 rounded-lg shadow-sm">
+                                   <p className="text-md font-semibold text-gray-800 mb-2">Question: <span className="text-gray-600">{result.question}</span></p>
+                                   <p className="text-md text-green-600 mb-1">Correct answer: <span className="font-semibold">{result.correctAnswer}</span></p>
+                                   <p className={`text-md mb-1 ${result.isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                                       Your answer: <span className="font-semibold">{result.userAnswer}</span>
+                                   </p>
+                                   <p className={`text-sm font-medium ${result.isCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                                       {result.isCorrect ? "Correct" : "Incorrect"}
+                                   </p>
+                               </li>
+                           ))}
+                       </ul>
+                   </div>
+                   
                     )}
                 </div>
             </div>

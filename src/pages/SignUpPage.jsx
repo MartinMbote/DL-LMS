@@ -91,6 +91,8 @@ const SignUpPage = () => {
     return passwordRegex.test(password);
   };
 
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!agreeTerms) {
@@ -98,12 +100,12 @@ const SignUpPage = () => {
       return;
     }
 
-    if (!validatePassword(password)) {
+    if (!validatePassword(formData.password)) {
       setError('Password must be at least 8 characters long, include an uppercase letter and a special character.');
       return;
     }
 
-    if (password !== repeatPassword) {
+    if (formData.password !== formData.repeatPassword) {
       setError('Passwords do not match.');
       return;
     }
@@ -126,10 +128,38 @@ const SignUpPage = () => {
 
       const data = await response.json();
       console.log('Registration successful:', data);
-      navigate('/dl-lms/activate', { replace: true });
+
+      Toastify({
+        text: 'Registration successful! Please check your email to verify your account.',
+        duration: 5000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          borderRadius: "10px",
+          fontSize: "15px",
+          padding: "15px",
+        },
+      }).showToast();
+
+      navigate('/dl-lms/', { replace: true });
     } catch (error) {
       console.error('Error during registration:', error);
       setError(error.message || 'Error during registration. Please try again.');
+      Toastify({
+        text: error.message || 'Error during registration. Please try again.',
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "rgba(128, 0, 0, 0.4)",
+          borderRadius: "10px",
+          fontSize: "15px",
+          padding: "15px",
+        },
+      }).showToast();
     }
   };
 
@@ -177,11 +207,6 @@ const SignUpPage = () => {
                     <div className='flex gap-[1.5vw] mb-[1vw]'>
                       <div>
                         <p className='text-[0.9vw]'>Email
-
-
-
-
-ChatGPT
 ID:</p>
 <input type="email" name="email" value={email} onChange={handleChange} placeholder='Enter Email ID' className='border placeholder-gray-500 text-[0.8vw] pl-[1vw] border-gray-400 rounded-[0.4vw] w-[15vw] h-[1.7vw]' />
 </div>

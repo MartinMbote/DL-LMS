@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { NavBar, SidePanelAdmin } from '../components';
+import { NavBar, SidePanel } from '../components';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
+
 
 function CreateContent() {
     const [quiz, setQuiz] = useState([{ question: "", answers: ["", "", "", ""], correctAnswerIndex: null }]);
@@ -122,7 +123,7 @@ function CreateContent() {
         <div>
             <NavBar {...navbarProps} />
             <div className="flex">
-                <SidePanelAdmin />
+                <SidePanel />
                 <div className="container mx-auto p-4">
                     <h2 className="text-xl font-semibold mb-4">Create Subchapter Content</h2>
                     <form className="space-y-4" onSubmit={handleSubmit}>

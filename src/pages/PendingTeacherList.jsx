@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom for navigation
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
-import 'react-toastify/dist/ReactToastify.css'; // Import the toastify CSS
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { NavBar, SidePanelAdmin } from '../components';
 
 const PendingTeachersList = () => {
@@ -11,30 +11,29 @@ const PendingTeachersList = () => {
   const [pendingTeachers, setPendingTeachers] = useState([]);
   const { user, authTokens } = useAuth();
 
+  const fetchPendingTeachers = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/pending-teachers/', {
+        headers: {
+          'Authorization': `Bearer ${authTokens.access}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      setPendingTeachers(response.data);
+    } catch (error) {
+      console.error('Failed to fetch pending teachers:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchPendingTeachers = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/pending-teachers/', {
-          headers: {
-            'Authorization': `Bearer ${authTokens.access}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        setPendingTeachers(response.data);
-      } catch (error) {
-        console.error('Failed to fetch pending teachers:', error);
-      }
-    };
-
-    fetchPendingTeachers(); // Call fetchPendingTeachers initially
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchPendingTeachers();
   }, []); 
+
   const navbarProps = {
     isLoggedIn: !!user,
     username: user?.username,
     profilePicture: userData.profile_picture,
-  };// Empty dependency array to run effect only once
+  };
 
   const handleApprove = async (teacherId) => {
     try {
@@ -44,12 +43,10 @@ const PendingTeachersList = () => {
           'Content-Type': 'application/json',
         },
       });
-      toast.error('Failed to approve');
-      // Refetch pending teachers to update the list
-      fetchPendingTeachers();
-    } catch (error) {
       toast.success('Teacher Approved');
-      
+      fetchPendingTeachers(); // Refetch pending teachers to update the list
+    } catch (error) {
+      toast.error('Failed to approve');
     }
   };
 
@@ -61,12 +58,10 @@ const PendingTeachersList = () => {
           'Content-Type': 'application/json',
         },
       });
-      toast.error('Failed to reject');
-      // Refetch pending teachers to update the list
-      fetchPendingTeachers();
+      toast.success('Teacher Rejected');
+      fetchPendingTeachers(); // Refetch pending teachers to update the list
     } catch (error) {
-      toast.success('Teacher rejected');
-      
+      toast.error('Failed to reject');
     }
   };
 
@@ -87,7 +82,7 @@ const PendingTeachersList = () => {
                   Applicants Name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Experties
+                  Expertise
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Cv Upload
@@ -128,7 +123,7 @@ const PendingTeachersList = () => {
           </table>
         </div>
       </div>
-      <ToastContainer /> {/* Add ToastContainer here */}
+      <ToastContainer />
     </div>
   );
 };

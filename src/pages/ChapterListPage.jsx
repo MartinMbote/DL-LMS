@@ -74,32 +74,48 @@ function ChapterListPage() {
                     {course && (
                         <h2 className="text-xl font-semibold mb-4">Chapters of the course {course.title}</h2>
                     )}
-                    <ul>
-                        {chapters.map(chapter => (
-                            <li key={chapter.id} className="flex justify-between items-center mb-2">
-                                <button
-                                    onClick={() => navigate(`/dl-lms/course/${id}/chapter/${chapter.id}/subchapters`)}
-                                    className="text-blue-500 hover:text-blue-700"
-                                >
-                                    {chapter.title}
-                                </button>
-                                <div className="flex space-x-4">
-                                    <button
-                                        onClick={() => navigate(`/course/${id}/chapter/${chapter.id}/update`)}
-                                        className="text-orange-500 hover:text-orange-700"
-                                    >
-                                        <FaPen />
-                                    </button>
-                                    <button
-                                        onClick={() => handleDeleteChapter(chapter.id)}
-                                        className="text-red-500 hover:text-red-700"
-                                    >
-                                        <FaTrash />
-                                    </button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr>
+                                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Title
+                                    </th>
+                                    <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {chapters.map((chapter, index) => (
+                                    <tr key={chapter.id} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            <button
+                                                onClick={() => navigate(`/dl-lms/course/${id}/chapter/${chapter.id}/subchapters`)}
+                                                className="text-blue-500 hover:text-blue-700"
+                                            >
+                                                {chapter.title}
+                                            </button>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 flex space-x-4">
+                                            <button
+                                                onClick={() => navigate(`/course/${id}/chapter/${chapter.id}/update`)}
+                                                className="text-orange-500 hover:text-orange-700"
+                                            >
+                                                <FaPen />
+                                            </button>
+                                            <button
+                                                onClick={() => handleDeleteChapter(chapter.id)}
+                                                className="text-red-500 hover:text-red-700"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <ToastContainer />

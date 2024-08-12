@@ -5,11 +5,13 @@ import { useAuth } from '../context/AuthContext';
 import { NavBar, SidePanel } from '../components';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import styles
 
 function Update() {
     const [title, setTitle] = useState("");
     const [userData, setUserData] = useState({});
-    const [subchapters, setSubchapters] = useState([{ title: "", video: null, note: "" }]);
+    const [subchapters, setSubchapters] = useState([{ title: "", videoUrl: "", note: "" }]);
     const navigate = useNavigate();
     const { user, authTokens } = useAuth();
     const { id } = useParams();
@@ -24,39 +26,32 @@ function Update() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         // Validate form fields
-        if (title.trim() === "" || subchapters.some(subchapter => !subchapter.title || subchapter.title.trim() === "" || subchapter.video === null)) {
+        if (title.trim() === "" || subchapters.some(subchapter => !subchapter.title || subchapter.title.trim() === "" || !subchapter.videoUrl.trim())) {
             alert("Please fill in all fields.");
             return;
         }
-
-        // Prepare FormData
-        const formData = new FormData();
-        formData.append("title", title.trim()); // Trim to remove leading/trailing spaces
-
-        // Append subchapters data
-        const subchaptersData = subchapters.map((subchapter, index) => ({
-            title: subchapter.title.trim(),
-            video: `subchapter-video-${index}`,
-            note: subchapter.note.trim() // Include note field
-        }));
-        formData.append("subchapters", JSON.stringify(subchaptersData));
-
-        // Append video files
-        subchapters.forEach((subchapter, index) => {
-            formData.append(`subchapter-video-${index}`, subchapter.video);
-        });
-
+    
+        // Prepare data
+        const requestData = {
+            title: title.trim(),
+            subchapters: subchapters.map(subchapter => ({
+                title: subchapter.title.trim(),
+                video: subchapter.videoUrl.trim(),
+                note: subchapter.note.trim()
+            }))
+        };
+    
         try {
             // Send POST request
-            const response = await axios.post(`http://127.0.0.1:8000/api/course/${id}/chapters/create/`, formData, {
+            const response = await axios.post(`http://127.0.0.1:8000/api/course/${id}/chapters/create/`, requestData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Authorization': `Bearer ${authTokens.access}` // Add authorization header if required
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authTokens.access}`
                 }
             });
-
+    
             if (response.status === 201) {
                 Toastify({
                     text: "Chapter created successfully",
@@ -67,20 +62,29 @@ function Update() {
                     style: {
                         background: "rgba(2, 51, 141, 0.4)",
                         borderRadius: "10px",
-                        fontSize: "15px", // Increase font size
-                        padding: "15px",  // Increase padding
+                        fontSize: "15px",
+                        padding: "15px",
                     },
                 }).showToast();
-
-                // Reset state variables
+    
                 setTitle("");
-                setSubchapters([{ title: "", video: null, note: "" }]);
-
-                // Navigate to a blank Update page
+                setSubchapters([{ title: "", videoUrl: "", note: "" }]);
                 navigate(`/dl-lms/Update/${id}`);
             }
         } catch (error) {
-            console.error("Error creating the chapter:", error);
+            console.error("Error creating the chapter:", error); // Log error to console
+            
+            // Optionally send error details to a logging service
+            try {
+                await axios.post('http://127.0.0.1:8000/api/logs/', {
+                    message: error.message,
+                    stack: error.stack,
+                    url: window.location.href
+                });
+            } catch (loggingError) {
+                console.error("Error logging the error:", loggingError);
+            }
+    
             const errorMessage = error.response?.data?.message || "Failed to create chapter, please try again.";
             Toastify({
                 text: errorMessage,
@@ -91,13 +95,14 @@ function Update() {
                 style: {
                     background: "rgba(128, 0, 0, 0.4)",
                     borderRadius: "10px",
-                    fontSize: "15px", // Increase font size
-                    padding: "15px",  // Increase padding
+                    fontSize: "15px",
+                    padding: "15px",
                 },
             }).showToast();
         }
     };
-
+    
+    
     const handleSubchapterChange = (index, field, value) => {
         const newSubchapters = subchapters.map((subchapter, i) => {
             if (i === index) {
@@ -109,7 +114,7 @@ function Update() {
     };
 
     const addSubchapter = () => {
-        setSubchapters([...subchapters, { title: "", video: null, note: "" }]);
+        setSubchapters([...subchapters, { title: "", videoUrl: "", note: "" }]);
     };
 
     const removeSubchapter = (index) => {
@@ -162,12 +167,14 @@ function Update() {
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">
-                                        Subchapter Video
+                                        Subchapter Video URL
                                     </label>
                                     <input
-                                        type="file"
-                                        onChange={(e) => handleSubchapterChange(index, "video", e.target.files[0])}
-                                        className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                                        type="text"
+                                        value={subchapter.videoUrl}
+                                        onChange={(e) => handleSubchapterChange(index, "videoUrl", e.target.value)}
+                                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        placeholder="Enter Video URL"
                                         required
                                     />
                                 </div>
@@ -175,9 +182,9 @@ function Update() {
                                     <label className="block text-sm font-medium text-gray-700">
                                         Subchapter Notes
                                     </label>
-                                    <textarea
+                                    <ReactQuill
                                         value={subchapter.note}
-                                        onChange={(e) => handleSubchapterChange(index, "note", e.target.value)}
+                                        onChange={(value) => handleSubchapterChange(index, "note", value)}
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                         placeholder="Enter Subchapter Notes"
                                     />

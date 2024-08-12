@@ -11,17 +11,17 @@ function SubChapterListPage() {
     const { courseId, chapterId } = useParams();
 
     useEffect(() => {
-    const fetchSubchapters = async () => {
-        try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/course/${courseId}/chapters/subchapters/`);
-            setSubchapters(response.data);
-        } catch (error) {
-            console.error("Error fetching subchapters:", error);
-        }
-    };
+        const fetchSubchapters = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/api/course/${courseId}/chapters/${chapterId}/subchapters/`);
+                setSubchapters(response.data);
+            } catch (error) {
+                console.error("Error fetching subchapters:", error);
+            }
+        };
 
-    fetchSubchapters();
-}, [courseId, chapterId]);
+        fetchSubchapters();
+    }, [courseId, chapterId]);
 
     const navbarProps = {
         isLoggedIn: !!user,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NavBar, SidePanel } from '../components';
+import { NavBar, SidePanel, Courses, Categories } from '../components';
 import { useAuth } from '../context/AuthContext';
+
 
 const TempPage = () => {
   const [userData, setUserData] = useState({});
@@ -45,11 +46,17 @@ const TempPage = () => {
   return (
     <div>
       <NavBar {...navbarProps} />
-      <div>
+      <div className='flex'>
         <SidePanel />
-        <p>Temp Page</p>
-        <div className='w-full h-[16.5vw]'></div>
+        
+        <div className='w-full h-[43.8vw] overflow-y-auto'>
+        <Categories/>
+        <Courses/>
+          <div className='flex gap-[1vw]'>
+            
+        </div>
       </div>
+    </div>
     </div>
   );
 }
